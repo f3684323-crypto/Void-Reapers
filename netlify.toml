@@ -1,0 +1,6 @@
+[build.environment]
+  # index.html contains the Firebase *web* API key, which is public by design
+  # (it identifies the Firebase project; access is enforced by Firebase rules).
+  # Smart detection flags any "AIza..." string, so it's turned off here.
+  # Regular secrets scanning of environment variable values still runs.
+  SECRETS_SCAN_SMART_DETECTION_ENABLED = "false"
