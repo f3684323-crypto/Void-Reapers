@@ -6,7 +6,8 @@ if (!admin.apps.length) {
     const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_JSON);
     admin.initializeApp({
       credential: admin.credential.cert(serviceAccount),
-      databaseURL: process.env.FIREBASE_DATABASE_URL
+      // Derived from the key so the database always matches the key's project
+      databaseURL: `https://${serviceAccount.project_id}-default-rtdb.firebaseio.com`
     });
   } catch (err) {
     console.error('Firebase init error:', err);
